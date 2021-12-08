@@ -10,7 +10,9 @@ import {
 
 interface Data{
     value: number,
-    description: string
+    description: string,
+    id_teacher: number,
+    id_student: number,
 }
 
 export class NotesController {
@@ -26,14 +28,18 @@ export class NotesController {
 
         const {
             value,
-            description
+            description,
+            id_teacher,
+            id_student,
         } = request.body
 
         const createNoteService = new CreateNoteService()
 
         const note = await createNoteService.execute({
             value,
-            description
+            description,
+            id_teacher,
+            id_student,
         })
 
         response.json(note)
@@ -42,7 +48,9 @@ export class NotesController {
     public async update (request: Request, response: Response) {
         const {
             value,
-            description
+            description, 
+            id_teacher,
+            id_student
         } = request.body
         const { id } = request.params
 
@@ -52,7 +60,9 @@ export class NotesController {
             +id,
             {
                 value,
-                description
+                description,
+                id_teacher,
+                id_student
             }
         )
 

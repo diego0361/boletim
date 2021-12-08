@@ -24,6 +24,14 @@ export class CreateGradesTable1636203528471 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
+                        name: 'id_teacher',
+                        type: 'bigint'
+                    },
+                    {
+                        name: 'id_student',
+                        type: 'bigint'
+                    },
+                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()'

@@ -24,6 +24,16 @@ export class CreateTeachersTable1636205316143 implements MigrationInterface {
                     {
                         name: 'discipline',
                         type: 'varchar'
+                    },
+                    {
+                        name: 'created_at',
+                        type: 'timestamp',
+                        default: 'now()'
+                    },
+                    {
+                        name: 'updated_at',
+                        type: 'timestamp',
+                        default: 'now()'
                     }
                 ]
             })

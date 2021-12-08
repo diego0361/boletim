@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import Teacher from "../../../Teachers/typeorm/entities/Teacher";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @Entity('note')
 class Note {
@@ -10,6 +11,13 @@ class Note {
 
     @Column()
     description: string
+
+    @ManyToOne(() => Teacher, teacher => teacher.notes)
+    @JoinColumn({ name: 'id_teacher' })
+    id_teacher: Teacher
+
+    @Column()
+    id_student: number
 
     @CreateDateColumn()
     created_at: string
