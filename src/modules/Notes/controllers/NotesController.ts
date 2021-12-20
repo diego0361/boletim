@@ -18,9 +18,9 @@ interface Data{
 export class NotesController {
     public async index(request: Request, response: Response){
         const listNotesService = new ListNotesService()
-
-        const note  = await listNotesService.execute()
-
+        
+        const note = await listNotesService.execute()
+        
         response.json(note)
     }
 

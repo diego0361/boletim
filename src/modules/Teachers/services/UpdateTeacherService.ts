@@ -14,14 +14,10 @@ export class UpdatedTeacherService {
     public async execute(id:number, { name, age, discipline }:IProps): Promise<Teacher> {
         const teachersRepository = getCustomRepository(TeachersRepository);
         const teacher = await teachersRepository.findById(id);
-        const verify = await teachersRepository.findByNameAndDiscipline({name, discipline})
 
         if(!teacher) {
             throw new Error('Professor não encontrado.')
         }
-
-        if (verify && (teacher.name !== name || teacher.discipline !== discipline))
-            throw new AppError('Professor já cadastrado.')
 
         teacher.name = name || teacher.name
         teacher.age = age || teacher.age

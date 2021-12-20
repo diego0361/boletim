@@ -20,9 +20,6 @@ export class UpdateNotesService {
             throw new Error('Nota incorreta.')
         }
 
-        if(verify && (note.id_teacher !== id_teacher))
-            throw new Error('Nota já cadastrada.')
-
         note.value = value
         note.description = description
         note.id_teacher = id_teacher

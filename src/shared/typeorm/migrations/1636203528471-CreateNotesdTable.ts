@@ -41,6 +41,20 @@ export class CreateGradesTable1636203528471 implements MigrationInterface {
                         type: 'timestamp',
                         default: 'now()'
                     }
+                ],
+                foreignKeys: [
+                    {
+                        name: "fk_notes_teacher_and_student",
+                        columnNames: ["id_teacher"],
+                        referencedTableName: "teacher",
+                        referencedColumnNames: ["id"]
+                    },
+                    {
+                        name: "fk_notes_student",
+                        columnNames: ["id_student"],
+                        referencedTableName: "student",
+                        referencedColumnNames: ["id"]
+                    }
                 ]
             })
         )

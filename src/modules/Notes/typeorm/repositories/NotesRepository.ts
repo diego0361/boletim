@@ -14,7 +14,8 @@ export class NotesRepository extends Repository<Note> {
         const note = await this.findOne({
             where: {
                 id
-            }
+            },
+            relations: ["id_student", "id_teacher"]
         }) 
 
         return note;

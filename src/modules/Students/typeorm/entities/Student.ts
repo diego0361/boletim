@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import Note from '../../../Notes/typeorm/entities/Note'
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('students')
 class Student {
@@ -16,6 +17,10 @@ class Student {
 
     @Column()
     age: number
+
+    @OneToMany(() => Note, Notes => Notes.id_student)
+    @JoinColumn({name: 'notes'})
+    notes: Note;
 
     @CreateDateColumn()
     created_at: string
